@@ -1,0 +1,863 @@
+/* css/style.css */
+
+/* --- General Resets and Body Styling --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Common modern font stack */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light grey background, similar to screenshot */
+    color: #333; /* Default text color */
+    line-height: 1.6;
+}
+
+/* --- Centered Container for Content Blocks --- */
+.login-container, main, header, footer {
+    max-width: 960px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center the blocks horizontally */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* --- Header Styling (Dark Theme) --- */
+header {
+    background-color: #16162D; /* Dark blue/purple similar to Concentrix header */
+    color: #ffffff; /* White text */
+    padding: 15px 30px; /* Adjust padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0; /* Remove previous rounding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 100%; /* Header spans full width */
+}
+
+/* Placeholder for Logo - Replace with <img> or SVG */
+header::before {
+    content: "The Trainer App"; /* Simple text placeholder */
+    font-weight: bold;
+    font-size: 1.4em;
+    /* Add styles if using an image:
+       content: url('path/to/your/logo.svg');
+       display: inline-block;
+       height: 30px; // Adjust
+       width: auto;
+    */
+}
+
+
+header h1 {
+    margin: 0;
+    font-size: 1.2em; /* Smaller title inside header */
+    /* Hide the H1 if the logo placeholder is enough */
+     display: none;
+}
+
+header .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+header .controls label {
+   margin: 0;
+   font-size: 0.9em;
+   white-space: nowrap;
+}
+
+header .controls select,
+header .controls button {
+   background-color: #2a2a45; /* Slightly lighter background for inputs */
+   color: #ffffff;
+   border: 1px solid #44446a;
+   padding: 5px 10px;
+   border-radius: 4px;
+   font-size: 0.9em;
+   max-width: 150px;
+}
+
+header .controls select {
+    cursor: pointer;
+}
+
+header .controls button#logout-button {
+    background-color: #555; /* Different color for logout */
+    border-color: #666;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+header .controls button#logout-button:hover {
+     background-color: #777;
+}
+
+
+/* --- Main Content Area --- */
+main {
+    background-color: #ffffff; /* White background for content */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.07);
+    margin-top: 30px; /* Space below header */
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #16162D; /* Use header color for main titles */
+    border-bottom: 2px solid #f0f0f0; /* Subtle separator */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Login Container --- */
+.login-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 50px; /* More space from top */
+}
+
+.login-container h1 {
+    color: #16162D;
+    margin-bottom: 20px;
+}
+.login-container h2 {
+    color: #555;
+    font-size: 1.1em;
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+.login-container p {
+    color: #6c757d; /* Medium grey text */
+    margin-bottom: 20px;
+}
+
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 12px; /* Slightly larger padding */
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Standard grey border */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* --- Button Styling (Primary = Teal) --- */
+button { /* General button reset */
+    border: none;
+    border-radius: 20px; /* Rounded corners like screenshot */
+    padding: 10px 25px; /* Adjust padding */
+    font-size: 0.95em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Primary Action Button Style (Teal) */
+#login-form button,
+#generate-report-button:not(:disabled),
+#next-day-button:not(:disabled),
+#generate-attendance-button:not(:disabled) {
+    background-color: #00c9b7; /* Teal/Cyan Accent Color */
+    color: white;
+}
+
+#login-form button:hover,
+#generate-report-button:not(:disabled):hover,
+#next-day-button:not(:disabled):hover,
+#generate-attendance-button:not(:disabled):hover {
+    background-color: #00a896; /* Darker teal on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary/Navigation Button Style */
+#prev-day-button {
+    background-color: #e9ecef; /* Light grey */
+    color: #495057; /* Darker grey text */
+    border: 1px solid #ced4da;
+}
+#prev-day-button:hover {
+     background-color: #dee2e6;
+}
+
+/* Disabled Button Style */
+button:disabled {
+    background-color: #e0e0e0; /* Greyed out */
+    color: #a0a0a0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Checklist Styling --- */
+#daily-checklist {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#daily-checklist ul {
+    list-style: none;
+    padding: 0;
+}
+
+#daily-checklist > ul > li { /* Direct children ul > li */
+    background-color: transparent;
+    margin-bottom: 5px; /* Reduced margin for top-level */
+    padding: 10px 5px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+#daily-checklist > ul > li:hover {
+    background-color: #f8f9fa;
+}
+li.parent-task > .task-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.toggle-children {
+    display: inline-block;
+    width: 20px; /* Width for the icon */
+    text-align: center;
+    margin-right: 8px;
+    font-weight: bold;
+    color: #16162D; /* Use a distinct color */
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow content to grow */
+}
+
+ul.attendee-list li {
+    display: flex;
+    align-items: center;
+    padding: 6px 5px; /* Adjust padding */
+    border-bottom: 1px dashed #f0f0f0;
+}
+ul.attendee-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 5px; /* Space below last attendee */
+}
+
+li.attendance-task ul.attendee-list {
+    padding-left: 25px; /* Maybe less indentation */
+}
+
+
+li.parent-task.collapsed .toggle-children, li.attendance-task.collapsed .toggle-children  {
+    transform: rotate(-90deg); /* Point right when collapsed */
+}
+li.parent-task:not(.collapsed) .toggle-children, li.attendance-task:not(.collapsed) .toggle-children {
+    transform: rotate(0deg); /* Point down when expanded */
+}
+
+li.parent-task .task-content input[type="checkbox"] {
+    margin-right: 5px; /* Adjust margin if needed */
+    margin-left: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+li.parent-task .task-content label {
+    flex-grow: 1;
+    margin-left: 0; /* Remove extra margin if toggle is present */
+}
+
+label {
+    flex-grow: 1; /* Allow label to take space */
+    cursor: pointer;
+    margin-right: 10px; /* Space before add button */
+    /* word-break: break-word; */ /* Optional: break long labels */
+}
+.add-observation-btn {
+    background: none;
+    border: none;
+    color: #007bff; /* Blue color */
+    font-size: 1.5em; /* Larger '+' sign */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1; /* Align '+' vertically */
+    margin-left: auto; /* Push to the right */
+    flex-shrink: 0; /* Prevent shrinking */
+    transition: color 0.2s ease;
+}
+
+.add-observation-btn:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+.add-observation-btn.has-content {
+    color: #28a745; /* Green color if observation exists */
+}
+.add-observation-btn.has-content:hover {
+    color: #1f7a33; /* Darker green */
+}
+
+.observation-container {
+    width: 100%; /* Take full width */
+    margin-top: 8px;
+    padding-left: 45px; /* Indent like child lists for parent items */
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 0; /* Initially hidden */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition */
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+li:not(.parent-task) .observation-container {
+     padding-left: 35px; /* Less indentation if not a parent */
+}
+
+li:not(.parent-task) > .task-content {
+    width: auto; /* Let checkbox/label define width */
+    margin-right: auto; /* Push observation button right */
+}
+
+.observation-container.visible {
+    max-height: 150px; /* Adjust as needed */
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.observation-textarea {
+    width: 100%;
+    min-height: 50px; /* Minimum height */
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-family: inherit; /* Use body font */
+    font-size: 0.9em;
+    box-sizing: border-box; /* Include padding in width */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+
+ul.child-task-list, ul.attendee-list {
+    list-style: none;
+    padding-left: 45px; /* Indentation for children */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden; /* Needed for smooth transition */
+    max-height: 0; /* Initially hidden */
+    transition: max-height 0.3s ease-out; /* Smooth expand/collapse */
+    border-left: 2px solid #00c9b7; /* Visual indicator line */
+    padding-top: 5px; /* Space above first child */
+}
+
+.task-link {
+    color:#007bff;
+    padding-left: 5px;
+    
+
+}
+
+.task-link:hover {
+    color:#0056b3;
+    padding-left: 5px;
+    
+
+}
+
+/* Style when expanded */
+li.parent-task:not(.collapsed) ul.child-task-list, li.attendance-task:not(.collapsed) ul.attendee-list {
+    max-height: 100%; /* Set a large enough max-height for content */
+    /* Adjust max-height if you expect very long lists */
+}
+
+li.parent-task, li.attendance-task {
+    display: flex; /* Use flex for the main li */
+    flex-direction: column; /* Stack content and child list */
+    align-items: stretch; /* Stretch items */
+}
+.score-div {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+li:not(.parent-task),li:not(.attendance-task) {
+    display: flex; /* Use flex for the main li */
+    align-items: center; /* Align items vertically */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+/* Styling for Child list items */
+ul.child-task-list li {
+    padding: 8px 5px;
+    display: flex;
+    align-items: center;
+    border-bottom: none; /* Remove bottom border for children */
+}
+ul.child-task-list li:last-child {
+    margin-bottom: 5px; /* Space below last child */
+}
+
+ul.child-task-list li input[type="checkbox"] {
+     margin-right: 10px;
+     transform: scale(1.1);
+}
+
+.quiz-child-item {
+    display: flex;
+    justify-content: center;
+
+}
+
+/* Completed state applies to both parent and child */
+#daily-checklist li.completed label,
+ul.child-task-list li.completed label {
+    text-decoration: line-through;
+    color: #888;
+    opacity: 0.8;
+}
+
+.pending-tasks-section {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background-color: #fff8e1; /* Light yellow background */
+    border: 1px solid #ffe5b9; /* Light orange border */
+    border-left: 5px solid #ffc107; /* Amber accent */
+    border-radius: 5px;
+}
+
+.pending-tasks-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #856404; /* Dark yellow/brown text */
+    font-size: 1.1em;
+}
+
+.pending-tasks-section ul {
+    list-style: none;
+    padding-left: 10px; /* Slight indent */
+    margin: 0;
+}
+
+.pending-tasks-section li.pending-task-item {
+    padding: 4px 0;
+    font-size: 0.9em;
+    color: #555;
+    font-style: italic; /* Italicize pending tasks */
+}
+.pending-tasks-section li.pending-task-item::before {
+    content: "• "; /* Add a bullet point */
+    color: #ffc107; /* Amber color */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+#daily-checklist li {
+    background-color: transparent; /* Remove background */
+    margin-bottom: 10px;
+    padding: 12px 5px; /* Adjust padding */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0; /* Subtle separator line */
+    transition: background-color 0.2s ease;
+}
+#daily-checklist li:hover {
+    background-color: #f8f9fa; /* Slight highlight on hover */
+}
+
+#daily-checklist li input[type="checkbox"] {
+    margin-right: 15px;
+    /* Optional: Style checkbox appearance */
+    transform: scale(1.2); /* Make checkbox slightly larger */
+    cursor: pointer;
+}
+#daily-checklist li label {
+    flex-grow: 1;
+     cursor: pointer;
+}
+
+#daily-checklist li.completed label {
+    text-decoration: line-through;
+    color: #888; /* Grey out completed text */
+    opacity: 0.8;
+}
+
+main p:has(> #current-day) { /* Selects the paragraph containing the #current-day span */
+    background-color: #eef1f5; /* Light background */
+    padding: 8px 15px;
+    border-radius: 6px;
+    display: inline-block; /* Make the background only wrap the content */
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Styling for the current day number itself */
+#current-day {
+    background-color: #16162D; /* Use the dark header color */
+    color: #ffffff; /* White text */
+    padding: 3px 10px; /* Padding inside the badge */
+    border-radius: 12px; /* Make it pill-shaped or circular */
+    font-weight: bold;
+    font-size: 1.1em; /* Slightly larger font for the number */
+    margin-left: 5px; /* Space between text and badge */
+    display: inline-block; /* Needed for padding/background */
+    min-width: 20px; /* Ensure it has some width even for single digits */
+    text-align: center; /* Center the number if min-width is applied */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+
+#modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    z-index: 99; /* Below modal, above content */
+}
+
+.modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px 35px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100; /* Above backdrop */
+    min-width: 400px; /* Minimum width */
+    max-width: 600px; /* Maximum width */
+    border-top: 5px solid #16162D; /* Header color accent */
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #16162D;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
+.stage-dates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 15px 20px; /* Row and column gap */
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa; /* Light background for this section */
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.stage-dates-grid label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #555;
+}
+.stage-dates-grid input[type="date"] {
+    width: 100%;
+    padding: 8px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+}
+.stage-dates-grid span.calculated-end-date {
+    display: inline-block; /* Or block if preferred */
+    padding: 8px 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95em;
+    min-height: 37px; /* Align with input height */
+}
+
+/* Adjust label margin below the grid */
+#new-class-modal label[for="new-class-roster"] {
+    margin-top: 5px;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding */
+    font-size: 1em;
+}
+.modal-content textarea {
+    resize: vertical; /* Allow height resize */
+    min-height: 100px;
+    font-family: monospace; /* Good for lists */
+}
+
+.modal-actions {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    margin-left: 10px;
+    padding: 8px 20px; /* Slightly smaller padding */
+}
+/* Style Cancel button differently */
+#cancel-new-class-btn {
+     background-color: #6c757d; /* Grey */
+     border: none;
+     color: white;
+}
+#cancel-new-class-btn:hover {
+    background-color: #5a6268;
+}
+
+.class-name-input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Same margin as other inputs */
+    border: 1px solid #ccc; /* Border around the group */
+    border-radius: 4px;
+    padding-left: 10px; /* Padding for the prefix */
+    background-color: #f8f9fa; /* Slight background for prefix area */
+}
+
+.class-name-input-group .class-name-prefix {
+    font-weight: bold;
+    color: #555;
+    margin-right: 5px; /* Space between prefix and input */
+}
+
+.class-name-input-group input[type="text"] {
+    flex-grow: 1; 
+    border: none; 
+    margin-bottom: 0; 
+    padding: 10px 5px; /* Adjust padding */
+    background-color: transparent; 
+    outline: none; 
+    border-radius: 4px;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-modal-btn:hover {
+    color: #777;
+}
+
+/* Ensure modal error message has margin */
+.modal #modal-error {
+    margin-top: 15px;
+    text-align: left;
+}
+
+#report-modal .modal-content {
+    max-width: 750px; /* Wider modal for report */
+    max-height: 90vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+#report-modal h4 {
+    color: #16162D;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+a {
+    text-decoration: none;
+}
+
+#report-modal hr {
+    margin: 25px 0;
+    border-color: #e5e5e5;
+}
+
+/* Grid layout for some fields */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive columns */
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.form-grid label {
+    margin-bottom: 2px;
+    font-size: 0.85em;
+    color: #666;
+}
+.form-grid input[type="number"],
+.form-grid span.summary-value {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: transparent; 
+    outline: none; 
+    border-radius: 4px;
+}
+span.summary-value {
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    min-height: 35px; /* Match input height */
+    display: inline-flex; /* Align text vertically */
+    align-items: center;
+}
+
+
+#report-modal select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Add margin below selects */
+}
+
+#report-modal textarea {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 15px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+     font-size: 0.95em;
+     resize: vertical;
+}
+
+/* Callouts Table */
+.callouts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+.callouts-table th,
+.callouts-table td {
+    border: 1px solid #eee;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+.callouts-table th {
+    background-color: #f8f9fa;
+    font-size: 0.9em;
+    color: #555;
+}
+.callouts-table td:nth-child(1) { /* Area column */
+    font-weight: bold;
+    width: 150px; /* Fixed width for area */
+    font-size: 0.9em;
+}
+.callouts-table td:nth-child(2) { /* Impact column */
+    width: 100px;
+}
+.callouts-table select.impact-select {
+    width: 100%;
+    padding: 5px;
+    font-size: 0.9em;
+    margin: 0; /* Reset margin */
+}
+.callouts-table input.remarks-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #6c757d; /* Medium grey text */
+    font-size: 0.9em;
+    max-width: 100%; /* Footer spans full width */
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0; /* Separator line above footer */
+}
+
+/* --- Messages --- */
+.error-message, .info-message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.error-message {
+    color: #721c24; /* Dark red */
+    background-color: #f8d7da; /* Light red */
+    border: 1px solid #f5c6cb;
+}
+
+.info-message {
+    color: #155724; /* Dark green */
+    background-color: #d4edda; /* Light green */
+    border: 1px solid #c3e6cb;
+}
+
+/* --- Horizontal Rule Separator --- */
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 25px 0;
+}
+
+/* --- Responsive Considerations (Basic Example) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+     header::before { /* Logo */
+         margin-bottom: 10px;
+     }
+
+    header .controls {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between; /* Space out controls on small screens */
+    }
+     header .controls label {
+        display: none; /* Hide labels on small screens maybe */
+     }
+
+    .login-container, main {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trainer App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>The Trainer App</h1>
+        <div class="controls">
+            <label for="campaign-select">Campaign:</label>
+            <select id="campaign-select">
+                <option value="campaign1">Alfa</option>
+                <option value="campaign2">Beta</option>
+            </select>
+
+            <label for="class-select">Class:</label>
+            <select id="class-select">
+                <option value="_new">New...</option>
+            </select>
+
+            <label for="stage-select">Stage:</label>
+            <select id="stage-select">
+                <option value="CCT">CCT</option>
+                <option value="PST">PST</option>
+                <option value="Nesting">Nesting</option>
+            </select>
+            <button id="logout-button">Log Out</button>
+        </div>
+    </header>
+
+    <main>
+        <h2>To-Do List - <span id="current-date"></span></h2>
+        <p>Current day progress <span id="current-day"></span></p>
+        <div id="daily-checklist">
+            <p>Select a stage to see the tasks.</p>
+        </div>
+        <button id="prev-day-button">Previous Day</button>
+        <button id="next-day-button" disabled>Next Day</button>
+        <hr>
+        <button id="generate-report-button" disabled>Generate Daily Summary</button>
+        <button id="generate-attendance-button" disabled>Generate Attendance</button>
+        <p id="app-message" class="info-message" style="display: none;"></p>
+        <div id="report-export-options"
+            style="display: none; margin-top: 15px; padding: 10px; background-color: #e7f3ff; border: 1px solid #b3d7ff; border-radius: 4px;">
+            <span>Report data saved. Export as:</span>
+            <button id="copy-report-btn" class="export-button">Copy HTML</button> <button id="download-report-btn"
+                class="export-button">Download .html</button> <textarea id="report-export-textarea"
+                style="width: 100%; height: 150px; margin-top: 10px; font-family: monospace; font-size: 0.85em; display: none;"></textarea>
+        </div>
+    </main>
+
+    <div id="new-class-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal-btn" title="Close">&times;</span>
+            <h3>Create New Wave</h3>
+
+            <label for="new-class-number">Wave Number:</label>
+            <div class="class-name-input-group">
+                <span class="class-name-prefix">Wave_</span>
+                <input type="text" id="new-class-number" placeholder="e.g., 54 or 57B">
+            </div>
+            <h4>Stage Dates</h4>
+            <div class="stage-dates-grid">
+                <div>
+                    <label for="new-class-cct-start">CCT Start Date:</label>
+                    <input type="date" id="new-class-cct-start" class="stage-start-date" data-stage="CCT">
+                </div>
+                <div>
+                    <label>CCT End Date:</label>
+                    <input type="date" id="new-class-cct-end" class="stage-start-date">
+                </div>
+
+                <div>
+                    <label for="new-class-pst-start">PST Start Date:</label>
+                    <input type="date" id="new-class-pst-start" class="stage-start-date" data-stage="PST">
+                </div>
+                <div>
+                    <label>PST End Date:</label>
+                    <input type="date" id="new-class-pst-end" class="stage-start-date">
+                </div>
+
+                <div>
+                    <label for="new-class-nesting-start">Nesting Start Date:</label>
+                    <input type="date" id="new-class-nesting-start" class="stage-start-date" data-stage="Nesting">
+                </div>
+                <div>
+                    <label>Nesting End Date:</label>
+                    <input type="date" id="new-class-nesting-end" class="stage-start-date" >
+                </div>
+            </div>
+
+            <label for="new-class-roster">Roster (Paste List: EmployeeID Name per line):</label>
+            <textarea id="new-class-roster" rows="10"
+                placeholder="E12345 Alice Wonderland\nE67890 Bob The Builder\nE11223 Charlie Chaplin..."></textarea>
+
+            <div class="modal-actions">
+                <button id="cancel-new-class-btn">Cancel</button>
+                <button id="save-new-class-btn">Save Wave</button>
+            </div>
+            <p id="modal-error" class="error-message" style="display: none;"></p>
+        </div>
+    </div>
+    <div id="modal-backdrop" style="display: none;"></div>
+    <div id="report-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal-btn" title="Close">&times;</span>
+            <h3>Daily Summary - Day <span id="report-modal-day"></span></h3>
+            <p> <strong>Batch Number:</strong> <span id="report-modal-class"></span> | <strong>Stage:</strong> <span
+                    id="report-modal-stage"></span></p>
+            <hr>
+
+            <h4>Overall Class Info (Verify/Update if needed)</h4>
+            <div class="form-grid">
+                <div><label for="report-initial-hc">Initial HC:</label><input type="number" id="report-initial-hc"
+                        min="0" readonly style="background-color: #eee;"></div>
+                <div><label for="report-current-hc">Current HC:</label><input type="number" id="report-current-hc"
+                        min="0" readonly style="background-color: #eee;"></div>
+                <div><label for="report-final-hc">Final HC (if known):</label><input type="number" id="report-final-hc"
+                        min="0" readonly style="background-color: #eee;"></div>
+            </div>
+            <label for="report-overall-attrition">Overall Attrition %:</label>
+            <input type="text" id="report-overall-attrition" readonly style="background-color: #eee;">
+            <hr>
+            <h4>Daily Attendance Summary</h4>
+            <div class="form-grid">
+                <div><label>Absences:</label><span id="report-absences" class="summary-value"></span></div>
+                <div><label>Lateness:</label><span id="report-lateness" class="summary-value"></span></div>
+            </div>
+            <h4>Daily Attendance Summary</h4>
+            <div class="form-grid">
+                <div><label for="report-ews-yellow">Medium (Yellow flag):</label><input type="number"
+                        id="report-ews-yellow" min="0" required></div>
+                <div><label for="report-ews-red">High (Red flag):</label><input type="number" id="report-ews-red"
+                        min="0" required></div>
+            </div>
+
+            <hr>
+            <h4>Daily Info</h4>
+            <label for="report-topics">Activities Covered: (Auto-populated, edit if needed)</label>
+            <textarea id="report-topics" spellcheck="true"></textarea>
+            <label for="report-highlights">Highlights:</label>
+            <textarea id="report-highlights" rows="3" placeholder="Enter key highlights for the day..." spellcheck="true"></textarea>
+
+            <hr>
+            <h4>Daily Callouts</h4>
+            <table class="callouts-table">
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Impact</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Facilities</td>
+                        <td><select class="impact-select" id="callout-facilities-impact">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select></td>
+                        <td><input type="text" class="remarks-input" id="callout-facilities-remarks"
+                                placeholder="Remarks..." spellcheck="true"></td>
+                    </tr>
+                    <tr>
+                        <td>Equipment/Accesses</td>
+                        <td><select class="impact-select" id="callout-equipment-impact">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select></td>
+                        <td><input type="text" class="remarks-input" id="callout-equipment-remarks"
+                                placeholder="Remarks..." spellcheck="true"></td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td><select class="impact-select" id="callout-performance-impact">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select></td>
+                        <td><input type="text" class="remarks-input" id="callout-performance-remarks"
+                                placeholder="Remarks..." spellcheck="true"></td>
+                    </tr>
+                    <tr>
+                        <td>People Engagement</td>
+                        <td><select class="impact-select" id="callout-engagement-impact">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select></td>
+                        <td><input type="text" class="remarks-input" id="callout-engagement-remarks"
+                                placeholder="Remarks..." spellcheck="true"></td>
+                    </tr>
+                    <tr>
+                        <td>Agenda Adherence</td>
+                        <td><select class="impact-select" id="callout-agenda-impact">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select></td>
+                        <td><input type="text" class="remarks-input" id="callout-agenda-remarks"
+                                placeholder="Remarks..." spellcheck="true"></td>
+                    </tr>
+                    <tr>
+                        <td>Attendance Callout</td>
+                        <td><select class="impact-select" id="callout-attendance-impact">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select></td>
+                        <td><input type="text" class="remarks-input" id="callout-attendance-remarks"
+                                placeholder="Auto-populated, edit if needed" spellcheck="true"></td>
+                    </tr>
+                    <tr>
+                        <td>Attrition Callout</td>
+                        <td><select class="impact-select" id="callout-attrition-impact">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select></td>
+                        <td><input type="text" class="remarks-input" id="callout-attrition-remarks"
+                                placeholder="Remarks..." spellcheck="true"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+            <h4>Actions</h4>
+            <label for="report-pending">Pending Items / Takeaways: (Auto-populated, edit if needed)</label>
+            <textarea id="report-pending" rows="3" spellcheck="true"></textarea>
+            <label for="report-actions">Actions Taken:</label>
+            <textarea id="report-actions" rows="3" placeholder="Enter actions taken today..." spellcheck="true"></textarea>
+
+
+            <div class="modal-actions">
+                <button id="cancel-report-btn">Cancel</button>
+                <button id="save-report-btn">Save Report Data</button>
+            </div>
+            <p id="report-modal-error" class="error-message" style="display: none;"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Concentrix</p>
+    </footer>
+
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>

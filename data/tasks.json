@@ -1,0 +1,456 @@
+{
+  "campaign1": {
+    "CCT": {
+      "1": [
+        {
+          "id": "onboardingEmail",
+          "text": "Onboarding Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "cct1_intro",
+          "text": "Welcome & Icebreaker"
+        },
+        {
+          "id": "tour",
+          "text": "Site tour"
+        },
+        {
+          "id": "cct1_topics",
+          "text": "Topics reviewed",
+          "isParent": true,
+          "children": [
+            {
+              "id": "cct1_p1",
+              "text": "Attendance Policy",
+              "link": ""
+            },
+            {
+              "id": "cct1_p2",
+              "text": "Zero Tolerance Policy",
+              "link": ""
+            },
+            {
+              "id": "cct1_p3",
+              "text": "Introduction to TWDC",
+              "link":"https://rise.articulate.com/share/6PobSh-QHVTmFLsGqbE-hD2sk5OCWpgP#/"
+            }
+          ]
+        },
+        {
+          "id": "cct1_tools",
+          "text": "Setup Tools",
+          "isParent": true,
+          "children": [
+            {
+              "id": "zimbra",
+              "text": "Zimbra"
+            },
+            {
+              "id": "wd",
+              "text": "WorkDay"
+            },
+            {
+              "id": "estart",
+              "text": "estart"
+            },
+            {
+              "id": "pulse",
+              "text": "Pulse"
+            }
+          ]
+        },
+        {
+          "id": "meetings",
+          "text": "Meetings",
+          "isParent": true,
+          "children": [
+            {
+              "id": "wfm",
+              "text": "WFM Meeting: Mariana Carvajal"
+            },
+            {
+              "id": "t&q",
+              "text": "T&Q Getting to know: Andrea Azocar & Jennifer Castellanos"
+            }
+          ]
+        },
+        {
+          "id": "wdTasks",
+          "text": "Workday Tasks"
+        }
+      ],
+      "2": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "meetings",
+          "text": "Meetings",
+          "isParent": true,
+          "children": [
+            {
+              "id": "bonus",
+              "text": "Bonus Talk: Mila Lopez"
+            },
+            {
+              "id": "ssg",
+              "text": "SSG Meeting: Fany Quitian"
+            },
+            {
+              "id": "fatw",
+              "text": "Friends At Work: TA"
+            },
+            {
+              "id": "legal",
+              "text": "Employee Relationships: Daniela Mancera"
+            },
+            {
+              "id": "ops",
+              "text": "GTK Operations: OMs"
+            }
+          ]
+        },
+        {
+          "id": "courses",
+          "text": "CNXU Courses",
+          "link": "https://cnxu.concentrix.com/",
+          "isParent": true,
+          "children": [
+            {
+              "id": "CCGN24071706ML",
+              "text": "COEB: CCGN24071706ML"
+            },
+            {
+              "id": "CCGN24032502EN",
+              "text": "SAGRILAFT: CCGN24032502EN"
+            },
+            {
+              "id": "CCSP24053109EN",
+              "text": "Data Protection: CCSP24053109EN"
+            },
+            {
+              "id": "Other",
+              "text": "All Autoassigned courses"
+            }
+          ]
+        },
+        {
+          "id": "one_on_ones",
+          "text": "1:1 with all the GCs/Initial EWS Flags"
+        }
+      ],
+      "3": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "topics",
+          "text": "Topics Covered",
+          "isParent": true,
+          "children": [
+            {
+              "id": "magic_commitment",
+              "text": "Our Magical Commitment",
+              "link": "https://cnxmail.sharepoint.com/:x:/r/sites/Project_CO_DisneyTrainingQuality/Shared%20Documents/General/T%26Q%20Team%20-%20Bogota/Call%20Flow%20-%20Magical%20Commitment%20.xlsx?d=w073f45e958984f129594f675ed723075&csf=1&web=1&e=UdC6DW"
+            },
+            {
+              "id": "soft_skills",
+              "text": "Conversational Skills",
+              "link": "https://sites.google.com/onelinkbpo.cc/performanceexcellence/creaciones-transversales/cct/english-cct?authuser=0"
+            },
+            {
+              "id": "model_attention",
+              "text": "Model of Attention: Chat and Phone basics",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/64aWxNhnp0jlzbR9vuDbQb7psL4KUSWp"
+            }
+          ]
+        },
+        {
+          "id": "meetings",
+          "text": "Meetings",
+          "isParent": true,
+          "children": [
+            {
+              "id": "nho",
+              "text": "New Hire Orientation"
+            },
+            {
+              "id": "carreer",
+              "text": "Carreer Path: Luis Varela"
+            },
+            {
+              "id": "gtk_tls",
+              "text": "GTK your TLs"
+            }
+          ]
+        },
+        {
+          "id": "graduation_criteria",
+          "text": "Graduation Requirements",
+          "link": ""
+        }
+      ]
+    },
+    "PST": {
+      "1": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "topics",
+          "text": "Topics Covered",
+          "isParent": true,
+          "children":[
+            {
+              "id": "greet",
+              "text": "Magical Commitment: Greet",
+              "link": "https://cnxmail.sharepoint.com/:x:/r/sites/Project_CO_DisneyTrainingQuality/Shared%20Documents/General/T%26Q%20Team%20-%20Bogota/Call%20Flow%20-%20Magical%20Commitment%20.xlsx?d=w073f45e958984f129594f675ed723075&csf=1&web=1&e=UdC6DW"
+            },
+            {
+              "id": "tech_itro",
+              "text": "Tech Tool Introduction",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/qNtxVrQhXjrI52gD2RvpzRTfh5LG9vWV"
+            }
+          ]
+        },
+        {
+          "id": "pst1_features",
+          "text": "Deep Dive: Product X Key Features"
+        },
+        {
+          "id": "pst1_qa",
+          "text": "Product X - Initial Q&A"
+        }
+      ],
+      "2": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "pst2_support",
+          "text": "Handling Common Support Tickets (Product X)"
+        },
+        {
+          "id": "pst2_kb",
+          "text": "Knowledge Base Navigation Practice"
+        },
+        {
+          "id": "pst2_roleplay",
+          "text": "Roleplay Scenario 1"
+        }
+      ]
+    },
+    "Nesting": {
+      "1": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "nes1_shadow",
+          "text": "Shadowing Senior Agent"
+        },
+        {
+          "id": "nes1_calls",
+          "text": "Listen to Recorded Calls"
+        },
+        {
+          "id": "nes1_goals",
+          "text": "Set Initial Nesting Goals"
+        }
+      ],
+      "2": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "nes2_first_calls",
+          "text": "Handle First Live Calls (Supervised)"
+        },
+        {
+          "id": "nes2_feedback",
+          "text": "Immediate Feedback on Calls"
+        },
+        {
+          "id": "nes2_log",
+          "text": "Log Call Information Practice"
+        }
+      ]
+    }
+  },
+  "campaign2": {
+    "CCT": {
+      "1": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "cct1_intro",
+          "text": "Welcome & Icebreaker"
+        },
+        {
+          "id": "cct1_policy",
+          "text": "Review Key Company Policies",
+          "isParent": true,
+          "children": [
+            {
+              "id": "cct1_p1",
+              "text": "Attendance Policy"
+            },
+            {
+              "id": "cct1_p2",
+              "text": "Code of Conduct"
+            }
+          ]
+        },
+        {
+          "id": "cct1_tools",
+          "text": "Initial Tools Setup (Email, Basic Login)"
+        }
+      ],
+      "2": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "cct2_review",
+          "text": "Review Day 1 Q&A"
+        },
+        {
+          "id": "cct2_comm",
+          "text": "Communication Etiquette Training"
+        },
+        {
+          "id": "cct2_systems",
+          "text": "Introduction to Core Systems",
+          "isParent": true,
+          "children": [
+            {
+              "id": "cct2_s1",
+              "text": "System A Overview"
+            },
+            {
+              "id": "cct2_s2",
+              "text": "System B Login Practice"
+            }
+          ]
+        }
+      ],
+      "3": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "cct3_sys_adv",
+          "text": "Core Systems - Advanced Features"
+        },
+        {
+          "id": "cct3_practice",
+          "text": "Scenario Practice 1"
+        },
+        {
+          "id": "cct3_feedback",
+          "text": "Initial Feedback Session"
+        }
+      ]
+    },
+    "PST": {
+      "1": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "pst1_prod_intro",
+          "text": "Product X - Full Introduction"
+        },
+        {
+          "id": "pst1_features",
+          "text": "Deep Dive: Product X Key Features"
+        },
+        {
+          "id": "pst1_qa",
+          "text": "Product X - Initial Q&A"
+        }
+      ],
+      "2": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "pst2_support",
+          "text": "Handling Common Support Tickets (Product X)"
+        },
+        {
+          "id": "pst2_kb",
+          "text": "Knowledge Base Navigation Practice"
+        },
+        {
+          "id": "pst2_roleplay",
+          "text": "Roleplay Scenario 1"
+        }
+      ]
+    },
+    "Nesting": {
+      "1": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "nes1_shadow",
+          "text": "Shadowing Senior Agent"
+        },
+        {
+          "id": "nes1_calls",
+          "text": "Listen to Recorded Calls"
+        },
+        {
+          "id": "nes1_goals",
+          "text": "Set Initial Nesting Goals"
+        }
+      ],
+      "2": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        },
+        {
+          "id": "nes2_first_calls",
+          "text": "Handle First Live Calls (Supervised)"
+        },
+        {
+          "id": "nes2_feedback",
+          "text": "Immediate Feedback on Calls"
+        },
+        {
+          "id": "nes2_log",
+          "text": "Log Call Information Practice"
+        }
+      ]
+    }
+  }
+}
