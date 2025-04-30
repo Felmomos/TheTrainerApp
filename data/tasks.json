@@ -28,7 +28,7 @@
             {
               "id": "cct1_p2",
               "text": "Zero Tolerance Policy",
-              "link": ""
+              "link": "https://cnxmail.sharepoint.com/:b:/r/sites/Project_CO_DisneyTrainingQuality/Shared%20Documents/General/T%26Q%20Team%20-%20Bogota/Training%20Team/Trainers%20Resources/Setting%20Expectations/Zero%20Tolerance%20Policy.pdf?csf=1&web=1&e=Jmdd1d"
             },
             {
               "id": "cct1_p3",
@@ -221,12 +221,46 @@
           ]
         },
         {
-          "id": "pst1_features",
-          "text": "Deep Dive: Product X Key Features"
+          "id": "courses",
+          "text": "CNXU Courses",
+          "link": "https://cnxu.concentrix.com/",
+          "isParent": true,
+          "children": [
+            {
+              "id": "intro_learnUpon",
+              "text": "Introduction to LearnUpon"
+            },
+            {
+              "id": "salesforce_plus",
+              "text": "Disney+ CBT: Salesforce for Plus Brands"
+            },
+            {
+              "id": "salesforce_hulu",
+              "text": "Hulu CBT: Salesforce"
+            },
+            {
+              "id": "baymax_plus",
+              "text": "Baymax+ 101"
+            },
+            {
+              "id": "baymax_hulu",
+              "text": "Hulu CBT: Baymax+ for Hulu Subscribers"
+            },
+            {
+              "id": "viewer_tools",
+              "text": "Hulu CBT: Viewer Tools"
+            },
+            {
+              "id": "verification",
+              "text": "Disney Streaming CBT: Account Verification"
+            }
+          ]
         },
         {
-          "id": "pst1_qa",
-          "text": "Product X - Initial Q&A"
+          "id": "quiz1",
+          "text": "Quiz 1: Verification",
+          "type": "quiz",
+          "link": "https://forms.office.com/r/5cjZdxkR2x"
         }
       ],
       "2": [
@@ -236,8 +270,76 @@
           "type": "attendance"
         },
         {
-          "id": "pst2_support",
-          "text": "Handling Common Support Tickets (Product X)"
+          "id": "roleplays",
+          "text": "Verification Roleplays"
+        },
+        {
+          "id": "topics",
+          "text": "Topics Covered",
+          "isParent": true,
+          "children":[
+            {
+              "id": "whoweare",
+              "text": "Who We Are & Content Quotes",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/daPNAxqFSLmIviqr684L0-G_hx_d_g1u"
+            },
+            {
+              "id": "personalization",
+              "text": "Customer Service Spotlight: Personalization",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/rpqfSDIWR3y6Xy-f6VummG5oFKt-eo0w"
+            },
+            {
+              "id": "meetcarl",
+              "text": "Meet Carl: How to help golden VXs",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/WSBcAi033tQmwu9UprWPhHnGzRd1IxJP"
+            },
+            {
+              "id": "understand",
+              "text": "Magical Commitment: Understand",
+              "link": "https://cnxmail.sharepoint.com/:x:/r/sites/Project_CO_DisneyTrainingQuality/Shared%20Documents/General/T%26Q%20Team%20-%20Bogota/Call%20Flow%20-%20Magical%20Commitment%20.xlsx?d=w073f45e958984f129594f675ed723075&csf=1&web=1&e=UdC6DW"
+            },
+            {
+              "id": "carl1",
+              "text": "Carl Chapter 1: How to sign up",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/ztMEd9S3zVfzAqF4nHUfwtCtdC5Thcq-"
+            },
+            {
+              "id": "carl2",
+              "text": "Carl Chapter 2: Device Accessibility",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/3iRn39ZWxHybZZN5YuzD_0tBFsnvygke"
+            },
+            {
+              "id": "manageDevices",
+              "text": "Manage Devices",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/YMLwG9WLYvq9PM6VS_Ti3cde4TBaHyed"
+            },
+            {
+              "id": "supportedDevices",
+              "text": "Supported Devices",
+              "link": "https://rise.articulate.com/share/KcqQax62FI4feh1oz2D_GHhKTqwb1K8F#/lessons/3AXFtCk6BhTq2EE_oCGJ6z5vvaL5kmQn"
+            },
+            {
+              "id": "marge_chat",
+              "text": "Marge: Chat Workflows and Personalization",
+              "link": "https://rise.articulate.com/share/NcqalMEHrcB44XVT4pfctT4oJLzcGbIo#/lessons/RFYgJNOiuVRE1IlpRBgZn6IqCXqtAJRK"
+            }
+          ]
+        },
+        {
+          "id": "courses",
+          "text": "CNXU Courses",
+          "link": "https://cnxu.concentrix.com/",
+          "isParent": true,
+          "children": [
+            {
+              "id": "mydisney",
+              "text": "MyDisney Account 101"
+            },
+            {
+              "id": "extra_member",
+              "text": "Disney+ CBT: Extra Member and Profile Transfers"
+            }
+          ]
         },
         {
           "id": "pst2_kb",
