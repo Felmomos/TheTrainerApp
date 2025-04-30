@@ -728,6 +728,7 @@ function handleAllPresent(event) {
     updateParentAttendanceCompletion(taskIdFull);
     saveState();
     checkAllTasksCompleted();
+    renderChecklist();
 }
 
 function handleAttendanceChange(event) {
