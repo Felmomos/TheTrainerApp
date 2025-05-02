@@ -1079,9 +1079,9 @@ function handleSaveNewClass() {
     modalErrorP.style.display = 'none';
     const classNumber = newClassNumberInput.value.trim(); // Get the number part
     const rosterText = newClassRosterTextarea.value.trim();
-    const cctStart = cctStartDateInput.value;
-    const pstStart = pstStartDateInput.value;
-    const nestingStart = nestingStartDateInput.value;
+    const cctStart = cctStartDateInput.valueAsDate;
+    const pstStart = pstStartDateInput.valueAsDate;
+    const nestingStart = nestingStartDateInput.valueAsDate;
     // Get calculated end dates (re-calculate or read from span?) Reading is simpler.
     const cctEnd = cctEndDateInput.value !== '' ? cctEndDateInput.value : null;
     const pstEnd = pstEndDateInput.value !== '' ? pstEndDateInput.value : null;
@@ -1246,41 +1246,69 @@ function handleGenerateAttendance() {
     const currentClassData = classes[currentCampaign]?.find(cls => cls.id === currentClassId);
     const currentAttendees = currentClassData?.attendees || [];
     const attendanceTaskDef = (mockTasks[currentCampaign]?.[currentStage]?.[currentDay] || []).find(t => t.type === 'attendance');
-    const today = new Date();
-    const date = today.toLocaleDateString('en-US', {
-        month: 'short', day: 'numeric'
-    });
+    let initialStageDate = new Date();
+    
+    console.log(initialStageDate);
+    let date = ''
     let attendanceReportData = [];
     let attendanceTaskFound = false;
     if (attendanceTaskDef) {
         attendanceTaskFound = true;
-        const attendanceTaskIdFull = `${currentStage}_${currentDay}_${attendanceTaskDef.id}`;
+
         currentAttendees.forEach(attendee => {
-            const attendeeIdFull = `${attendanceTaskIdFull}_${attendee.id}`;
-            const status = taskStatus[attendeeIdFull]?.attendance;
+            let statuses = [];
+            if (currentStage == 'CCT') {
+                initialStageDate = new Date(Date.parse(currentClassData?.dates.cctStart));
+                
+            } else if (currentStage == 'PST') {
+                initialStageDate = new Date(Date.parse(currentClassData?.dates.pstStart));
+            } else if (currentStage == 'Nesting') {
+                initialStageDate = new Date(Date.parse(currentClassData?.dates.nestingStart));
+            }
+            for (let day = 0; day <= currentDay-1; day++) {
+                const attendanceTaskIdFull = `${currentStage}_${day+1}_${attendanceTaskDef.id}`;
+                const attendeeIdFull = `${attendanceTaskIdFull}_${attendee.id}`;
+                const status = taskStatus[attendeeIdFull]?.attendance;
+                let dateAndStatus = {};
+                do {
+                    initialStageDate.setDate(initialStageDate.getDate() + 1);
+                    console.log(initialStageDate.getDay());
+                } while (initialStageDate.getDay() === 0 || initialStageDate.getDay() === 6);
+                console.log("this is the initialStageDate" + initialStageDate.getDate);
+                date = initialStageDate.toLocaleDateString('en-US', {
+                    month: 'short', day: 'numeric'
+                });
+                console.log("this is the string date" + date);
+                dateAndStatus = {
+                    date: date,
+                    status: status,
+                    statusColor: "White;"
+                };
+                if (status === 'P') {
+
+                    dateAndStatus.statusColor = "rgb(0,176,80);";
+                }
+                if (status === 'A') {
+                    dateAndStatus.statusColor = "rgb(192,0,0);";
+                }
+                if (status === 'L') {
+                    dateAndStatus.statusColor = "rgb(255,192,0);";
+                }
+                if (status === 'T') {
+                    dateAndStatus.statusColor = "rgb(0, 0, 0);";
+                }
+                statuses.push(dateAndStatus);
+            }
             let attendeeData = {
                 name: attendee.name,
                 id: attendee.id,
-                status: status,
-                statusColor: "white;"
+                statuses: statuses
             };
-            if (status === 'P') {
-
-                attendeeData.statusColor = "rgb(0,176,80);";
-            }
-            if (status === 'A') {
-                attendeeData.statusColor = "rgb(192,0,0);";
-            }
-            if (status === 'L') {
-                attendeeData.statusColor = "rgb(255,192,0);";
-            }
-            if (status === 'T') {
-                attendeeData.statusColor = "rgb(0, 0, 0);";
-            }
+            
             attendanceReportData.push(attendeeData);
         });
         try {
-            const formattedAttendanceHTML = formatDataForAttendance(attendanceReportData, date);
+            const formattedAttendanceHTML = formatDataForAttendance(attendanceReportData);
             const formattedReportText = formattedAttendanceHTML.replace(/<[^>]*>/g, '\n').replace(/\n\s*\n/g, '\n').trim();
             handleCopyReport(formattedAttendanceHTML, formattedReportText);
             displayMessage(`Daily Attendance copied to clipboard successfully.`);

@@ -3,7 +3,7 @@
     "CCT": {
       "1": [
         {
-          "id": "onboardingEmail",
+          "id": "attendance",
           "text": "Onboarding Attendance",
           "type": "attendance"
         },
@@ -348,6 +348,62 @@
         {
           "id": "pst2_roleplay",
           "text": "Roleplay Scenario 1"
+        }
+      ],
+      "3": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        }
+      ],
+      "4": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        }
+      ],
+      "5": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        }
+      ],
+      "6": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        }
+      ],
+      "7": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        }
+      ],
+      "8": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        }
+      ],
+      "9": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
+        }
+      ],
+      "10": [
+        {
+          "id": "attendance",
+          "text": "Register Attendance",
+          "type": "attendance"
         }
       ]
     },
