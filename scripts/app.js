@@ -1645,8 +1645,6 @@ function handleSaveReportData() {
     // --- 2. Process/Store Data ---
     console.log("Collected Report Data:", reportData);
 
-    // Option A: Log to console (as done currently)
-    // Option B: Store in localStorage (e.g., keyed by day)
     try {
         let dailyReports = JSON.parse(localStorage.getItem('dailyReports') || '{}');
         // Structure: dailyReports[campaignId][classId][stage][day] = reportData
@@ -1677,9 +1675,6 @@ function handleSaveReportData() {
         displayMessage("Error saving report data. Please fill all the necessary information.", true);
         reportExportArea.style.display = 'none';
     }
-
-    // Option C: Display formatted data (more complex)
-    // Option D: Prepare for potential future backend submission
 
     // --- 3. Hide Modal ---
     hideReportModal();
@@ -1714,11 +1709,6 @@ async function handleCopyReport(htmlContent, textContent) {
         } catch (fallbackErr) {
             console.error('Failed to copy plain text: ', fallbackErr);
             displayMessage('Failed to copy report text.', true);
-            // Optional: Show the textarea for manual copy as final fallback
-            // reportExportTextarea.value = textContent; // Show plain text
-            // reportExportTextarea.style.display = 'block';
-            // reportExportTextarea.select();
-            // reportExportTextarea.setSelectionRange(0, 99999);
         }
     }
 }
@@ -1750,7 +1740,6 @@ function goToPrevDay() {
     }
 }
 
-// --- Inicialización ---
 function initApp() {
     loadState(); // Load state (includes campaign, stage, classId, classes)
     setCurrentDate();
@@ -1789,9 +1778,7 @@ function initializeAppLogic() {
     if (!tasksLoaded) return;
 
     console.log("Initializing app logic after tasks loaded.");
-    populateClassDropdown(); // Populate based on loaded campaign and classes
-    // renderChecklist() will be called by populateClassDropdown via handleClassChange if a class is selected
-    // Ensure initial state is checked if a class was automatically selected
+    populateClassDropdown();
     if (currentClassId) {
         renderChecklist();
     } else {
